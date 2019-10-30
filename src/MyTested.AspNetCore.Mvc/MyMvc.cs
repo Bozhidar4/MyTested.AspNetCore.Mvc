@@ -1,13 +1,17 @@
-﻿namespace MyTested.AspNetCore.Mvc
+﻿// <copyright file="MyMvc.cs" company="MyTested.AspNetCore.MVC - ASP.NET Core MVC Fluent Testing Framework 2019 Ivaylo Kenov">
+// Copyright (c) MyTested.AspNetCore.MVC - ASP.NET Core MVC Fluent Testing Framework 2019 Ivaylo Kenov. All rights reserved.
+// </copyright>
+
+namespace MyTested.AspNetCore.Mvc
 {
     using System;
-    using Builders.Contracts.Application;
-    using Builders.Contracts.Controllers;
-    using Builders.Contracts.Routing;
-    using Builders.Contracts.Server;
-    using Builders.Contracts.ViewComponents;
-    using Builders.Server;
-    using Internal.Application;
+    using MyTested.AspNetCore.Mvc.Builders.Contracts.Application;
+    using MyTested.AspNetCore.Mvc.Builders.Contracts.Controllers;
+    using MyTested.AspNetCore.Mvc.Builders.Contracts.Routing;
+    using MyTested.AspNetCore.Mvc.Builders.Contracts.Server;
+    using MyTested.AspNetCore.Mvc.Builders.Contracts.ViewComponents;
+    using MyTested.AspNetCore.Mvc.Builders.Server;
+    using MyTested.AspNetCore.Mvc.Internal.Application;
 
     /// <summary>
     /// Provides methods to specify an ASP.NET Core MVC test case.
@@ -24,7 +28,7 @@
         /// <typeparam name="TStartup">Type of startup class.</typeparam>
         /// <returns>Builder of <see cref="IApplicationConfigurationBuilder"/> type.</returns>
         public static IApplicationConfigurationBuilder StartsFrom<TStartup>()
-            where TStartup : class 
+            where TStartup : class
             => new MyApplication(typeof(TStartup));
 
         /// <summary>
@@ -40,7 +44,7 @@
         /// Starts a route test.
         /// </summary>
         /// <returns>Test builder of <see cref="IRouteTestBuilder"/> type.</returns>
-        public static IRouteTestBuilder Routing() 
+        public static IRouteTestBuilder Routing()
             => new MyRouting();
 
         /// <summary>
@@ -49,7 +53,7 @@
         /// <typeparam name="TController">Class representing ASP.NET Core MVC controller.</typeparam>
         /// <returns>Test builder of <see cref="IControllerBuilder{TController}"/> type.</returns>
         public static IControllerBuilder<TController> Controller<TController>()
-            where TController : class 
+            where TController : class
             => new MyController<TController>();
 
         /// <summary>
@@ -59,7 +63,7 @@
         /// <param name="controller">Instance of the ASP.NET Core MVC controller to test.</param>
         /// <returns>Test builder of <see cref="IControllerBuilder{TController}"/> type.</returns>
         public static IControllerBuilder<TController> Controller<TController>(TController controller)
-            where TController : class 
+            where TController : class
             => new MyController<TController>(controller);
 
         /// <summary>
@@ -69,7 +73,7 @@
         /// <param name="construction">Construction function returning the instantiated controller.</param>
         /// <returns>Test builder of <see cref="IControllerBuilder{TController}"/> type.</returns>
         public static IControllerBuilder<TController> Controller<TController>(Func<TController> construction)
-            where TController : class 
+            where TController : class
             => new MyController<TController>(construction);
 
         /// <summary>
@@ -88,7 +92,7 @@
         /// <typeparam name="TViewComponent">Class representing ASP.NET Core MVC view component.</typeparam>
         /// <returns>Test builder of <see cref="IViewComponentBuilder{TViewComponent}"/> type.</returns>
         public static IViewComponentBuilder<TViewComponent> ViewComponent<TViewComponent>()
-            where TViewComponent : class 
+            where TViewComponent : class
             => new MyViewComponent<TViewComponent>();
 
         /// <summary>
@@ -98,7 +102,7 @@
         /// <param name="viewComponent">Instance of the ASP.NET Core MVC view component to use.</param>
         /// <returns>Test builder of <see cref="IViewComponentBuilder{TViewComponent}"/> type.</returns>
         public static IViewComponentBuilder<TViewComponent> ViewComponent<TViewComponent>(TViewComponent viewComponent)
-            where TViewComponent : class 
+            where TViewComponent : class
             => new MyViewComponent<TViewComponent>(viewComponent);
 
         /// <summary>
@@ -108,7 +112,7 @@
         /// <param name="construction">Construction function returning the instantiated view component.</param>
         /// <returns>Test builder of <see cref="IViewComponentBuilder{TViewComponent}"/> type.</returns>
         public static IViewComponentBuilder<TViewComponent> ViewComponent<TViewComponent>(Func<TViewComponent> construction)
-            where TViewComponent : class 
+            where TViewComponent : class
             => new MyViewComponent<TViewComponent>(construction);
     }
 }
