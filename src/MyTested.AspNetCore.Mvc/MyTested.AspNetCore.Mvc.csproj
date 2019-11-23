@@ -36,14 +36,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="stylecop.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <AdditionalFiles Include="stylecop.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\MyTested.AspNetCore.Mvc.Core\MyTested.AspNetCore.Mvc.Core.csproj" />
     <ProjectReference Include="..\MyTested.AspNetCore.Mvc.DependencyInjection\MyTested.AspNetCore.Mvc.DependencyInjection.csproj" />
     <ProjectReference Include="..\MyTested.AspNetCore.Mvc.Options\MyTested.AspNetCore.Mvc.Options.csproj" />
